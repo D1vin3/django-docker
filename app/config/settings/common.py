@@ -33,7 +33,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", False)
 
-ALLOWED_HOSTS = ['185.22.64.49', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['185.22.64.49', '127.0.0.1', 'localhost', '0.0.0.0']
 
 INTERNAL_IPS = ['127.0.0.1', '::1', '185.22.64.49']
 
@@ -241,9 +241,5 @@ CELERY_RESULT_SERIALIZER = 'json'
 from celery.schedules import crontab
 
 CELERY_BEAT_SCHEDULE = {
-    'hello': {
-        'task': 'apps.authentication.tasks.hello',
-        'args': ('Baha_config',),
-        'schedule': crontab()  # execute every minute
-    }
+
 }

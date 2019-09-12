@@ -4,12 +4,6 @@ from celery.task import periodic_task
 from django.utils import timezone
 
 
-
-@shared_task
-def hello(name):
-    print(f'Hello {name}')
-    return name
-
 @periodic_task(run_every=crontab(minute='*'))
 def hello_world():
     print('hello world')
